@@ -53,7 +53,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>student/?page=fees" class="nav-link nav-clients">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-money-bill"></i>
                         <p>
                           Fees
                         </p>
@@ -61,7 +61,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>student/?page=units" class="nav-link nav-testimonials">
-                        <i class="nav-icon fas fa-quote-left"></i>
+                        <i class="nav-icon fas fa-book"></i>
                         <p>
                           Units
                         </p>
@@ -77,7 +77,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>student/?page=hostel-booking" class="nav-link nav-inquiries">
-                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <i class="nav-icon fas fa-house-user"></i>
                         <p>
                           Hostel Booking
                         </p>
@@ -85,7 +85,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>student/?page=messages" class="nav-link nav-inquiries">
-                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <i class="nav-icon fas fa-envelope"></i>
                         <p>
                           Messages
                         </p>
@@ -93,7 +93,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>student/?page=repository" class="nav-link nav-inquiries">
-                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <i class="nav-icon fas fa-database"></i>
                         <p>
                           Repository
                         </p>
@@ -101,7 +101,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>student/?page=evaluation" class="nav-link nav-inquiries">
-                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <i class="nav-icon fas fa-microscope"></i>
                         <p>
                           Evaluation
                         </p>
@@ -109,7 +109,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>student/?page=clearance" class="nav-link nav-inquiries">
-                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <i class="nav-icon fa fa-soap"></i>
                         <p>
                           Clearance
                         </p>
@@ -117,7 +117,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>student/?page=timetable" class="nav-link nav-inquiries">
-                        <i class="nav-icon fas fa-envelope-open-text"></i>
+                        <i class="nav-icon fas fa-table"></i>
                         <p>
                           Timetable
                         </p>

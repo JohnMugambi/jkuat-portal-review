@@ -12,7 +12,7 @@
           </li>
          
           <li class="nav-item">
-            <a class="nav-link"  href="javascript:void(0)" onclick="location.replace('<?php echo base_url.'/classes/Login.php?f=logout' ?>')" role="button">
+            <a class="nav-link"  href="javascript:void(0)" onclick="location.replace('<?php echo base_url.'logout.php' ?>')" role="button">
             <i class="fas fa-sign-out-alt"></i>
             </a>
           </li>

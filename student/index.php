@@ -1,4 +1,10 @@
-<?php require_once('../config.php'); ?>
+<?php 
+include_once('../config.php');
+if(!isset($_SESSION['loggedin']) && !$_SESSION['loggedin'] == true ){
+    echo "user is not logged in";
+    header("Location: http://localhost/jkuat-student-portal/login.php ");
+}
+?>
 
  <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
