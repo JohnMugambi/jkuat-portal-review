@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 28, 2022 at 11:03 PM
+-- Generation Time: Nov 29, 2022 at 11:20 AM
 -- Server version: 8.0.31-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -127,6 +127,66 @@ INSERT INTO `tblSchool` (`id`, `school_name`, `college_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblSessionReporting`
+--
+
+CREATE TABLE `tblSessionReporting` (
+  `id` int NOT NULL,
+  `reg_no` varchar(255) NOT NULL,
+  `course_name` varchar(255) NOT NULL,
+  `report_status` tinyint(1) NOT NULL,
+  `session` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblSessions`
+--
+
+CREATE TABLE `tblSessions` (
+  `id` int NOT NULL,
+  `session` varchar(255) NOT NULL,
+  `date_from` date NOT NULL,
+  `date_to` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tblSessions`
+--
+
+INSERT INTO `tblSessions` (`id`, `session`, `date_from`, `date_to`) VALUES
+(1, '2022/2023', '2022-11-01', '2023-04-28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblTimetable`
+--
+
+CREATE TABLE `tblTimetable` (
+  `id` int NOT NULL,
+  `day` varchar(255) NOT NULL,
+  `time_start` time NOT NULL,
+  `time_end` time NOT NULL,
+  `lecturer` varchar(255) NOT NULL,
+  `unit_code` varchar(255) NOT NULL,
+  `unit_name` varchar(255) NOT NULL,
+  `course_name` varchar(255) NOT NULL,
+  `year` int NOT NULL,
+  `semester` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tblTimetable`
+--
+
+INSERT INTO `tblTimetable` (`id`, `day`, `time_start`, `time_end`, `lecturer`, `unit_code`, `unit_name`, `course_name`, `year`, `semester`) VALUES
+(1, 'Monday', '08:00:40', '10:00:40', 'Mr Sam Witwicky', '', '', '', 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblUnits`
 --
 
@@ -157,26 +217,28 @@ INSERT INTO `tblUnits` (`id`, `unit_code`, `unit_name`, `unit_description`, `cou
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblusers`
+-- Table structure for table `tblUsers`
 --
 
-CREATE TABLE `tblusers` (
+CREATE TABLE `tblUsers` (
   `id` int NOT NULL,
   `username` varchar(255) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `reg_no` varchar(255) DEFAULT NULL,
-  `course` varchar(255) DEFAULT NULL,
+  `course_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `academic_year` int DEFAULT NULL,
   `semester` int DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `tblusers`
+-- Dumping data for table `tblUsers`
 --
 
-INSERT INTO `tblusers` (`id`, `username`, `password`, `reg_no`, `course`, `academic_year`, `semester`, `created_at`) VALUES
-(1, 'admin', 'mugambi', 'sct212-0000/2018', 'Computer Technology', 1, 1, '2022-11-28 18:40:52');
+INSERT INTO `tblUsers` (`id`, `username`, `first_name`, `last_name`, `password`, `reg_no`, `course_name`, `academic_year`, `semester`, `created_at`) VALUES
+(1, 'admin', 'John', 'Smith', 'mugambi', 'sct212-0000/2018', 'Bsc. Computer Technology', 1, 1, '2022-11-28 18:40:52');
 
 --
 -- Indexes for dumped tables
@@ -195,6 +257,7 @@ ALTER TABLE `tblCollege`
 ALTER TABLE `tblCourseList`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `course_name` (`course_name`),
+  ADD UNIQUE KEY `course_name_2` (`course_name`),
   ADD KEY `dept_name` (`dept_name`);
 
 --
@@ -221,6 +284,26 @@ ALTER TABLE `tblSchool`
   ADD KEY `college_name` (`college_name`);
 
 --
+-- Indexes for table `tblSessionReporting`
+--
+ALTER TABLE `tblSessionReporting`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `session` (`session`);
+
+--
+-- Indexes for table `tblSessions`
+--
+ALTER TABLE `tblSessions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `session` (`session`);
+
+--
+-- Indexes for table `tblTimetable`
+--
+ALTER TABLE `tblTimetable`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tblUnits`
 --
 ALTER TABLE `tblUnits`
@@ -228,9 +311,9 @@ ALTER TABLE `tblUnits`
   ADD KEY `course_name` (`course_name`);
 
 --
--- Indexes for table `tblusers`
+-- Indexes for table `tblUsers`
 --
-ALTER TABLE `tblusers`
+ALTER TABLE `tblUsers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`,`reg_no`);
 
@@ -269,15 +352,33 @@ ALTER TABLE `tblSchool`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `tblSessionReporting`
+--
+ALTER TABLE `tblSessionReporting`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tblSessions`
+--
+ALTER TABLE `tblSessions`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tblTimetable`
+--
+ALTER TABLE `tblTimetable`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tblUnits`
 --
 ALTER TABLE `tblUnits`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tblusers`
+-- AUTO_INCREMENT for table `tblUsers`
 --
-ALTER TABLE `tblusers`
+ALTER TABLE `tblUsers`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -301,6 +402,12 @@ ALTER TABLE `tblDepartments`
 --
 ALTER TABLE `tblSchool`
   ADD CONSTRAINT `tblSchool_ibfk_1` FOREIGN KEY (`college_name`) REFERENCES `tblCollege` (`college_name`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblSessionReporting`
+--
+ALTER TABLE `tblSessionReporting`
+  ADD CONSTRAINT `tblSessionReporting_ibfk_1` FOREIGN KEY (`session`) REFERENCES `tblSessions` (`session`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tblUnits`
