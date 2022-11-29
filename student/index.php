@@ -3,6 +3,23 @@ include_once('../config.php');
 if(!isset($_SESSION['loggedin']) && !$_SESSION['loggedin'] == true ){
     echo "user is not logged in";
     header("Location: http://localhost/jkuat-student-portal/login.php ");
+}else{
+    $username =  $_SESSION['username'];
+    $sql = "SELECT first_name, last_name, reg_no, course_name, academic_year, semester FROM 
+    tblUsers WHERE username='$username'";
+    $result = mysqli_query($conn, $sql);
+    if(!$result){
+      die(mysqli_error($conn));
+    }
+
+    $getRowAssoc = mysqli_fetch_assoc($result);
+    
+
+    $fullname = $getRowAssoc['first_name']. " ". $getRowAssoc['last_name'];
+    $reg_no = $getRowAssoc['reg_no'];
+    $course = $getRowAssoc['course_name'];
+    $academic_year = $getRowAssoc['academic_year'];
+    $semester  = $getRowAssoc['semester'];
 }
 ?>
 

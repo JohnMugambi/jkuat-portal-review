@@ -26,7 +26,7 @@ if(isset($_POST['login'])){
         echo 'errors in the form';
     }else{
         //Select user
-        $sql = "SELECT username, password FROM tblusers WHERE username = ? ";
+        $sql = "SELECT username, password FROM tblUsers WHERE username = ? ";
 
         if($stmt = mysqli_prepare($conn, $sql)){
 
@@ -122,7 +122,7 @@ if(isset($_POST['register'])){
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
       
-        $sql = "INSERT INTO tblusers(username, password) VALUES(?,?)";
+        $sql = "INSERT INTO tblUsers(username, password) VALUES(?,?)";
 
         if($stmt = $conn->prepare($sql)){
 

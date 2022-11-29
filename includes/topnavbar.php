@@ -1,6 +1,8 @@
 <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-white navbar-light text-sm">
         
+        <div style="font-size: 1.1rem; margin-left:9px;"><?php echo $fullname?></div>
+
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
           
